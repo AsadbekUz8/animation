@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetitor Topuvchi - O'zbekistondagi eng yaxshi repetitorlar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <!-- Header qismi -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-3d-container">
+                <div class="logo-3d">
+                    <div class="logo-front">RT</div>
+                    <div class="logo-back">RT</div>
+                    <div class="logo-top">RT</div>
+                    <div class="logo-bottom">RT</div>
+                    <div class="logo-left">RT</div>
+                    <div class="logo-right">RT</div>
+                </div>
+            </div>
+            <div class="logo-text">
+                <span class="number animate__animated animate__pulse animate__infinite">12</span>
+                <span class="region">VILOYAT</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#registration">Ro'yxatdan o'tish</a></li>
+                <li><a href="#search">Qidiruv</a></li>
+                <li><a href="#resources">Resurslar</a></li>
+                <li><a href="#about">Biz haqimizda</a></li>
+                <li><a href="#statistics" class="new-feature">Statistika</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Asosiy qism (Hero section) -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="particles-container" id="particles-js"></div>
+        <div class="floating-elements">
+            <div class="floating-element" data-speed="2"><i class="fas fa-book"></i></div>
+            <div class="floating-element" data-speed="1.5"><i class="fas fa-graduation-cap"></i></div>
+            <div class="floating-element" data-speed="3"><i class="fas fa-pencil-alt"></i></div>
+            <div class="floating-element" data-speed="2.2"><i class="fas fa-calculator"></i></div>
+            <div class="floating-element" data-speed="1.8"><i class="fas fa-globe"></i></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Eng yaxshi O'zbekistondagi repetitorlar siz uchun!</h1>
+            <div class="motivational-text animate__animated animate__fadeIn" id="motivational-text">
+                <!-- Bu yerga JavaScript orqali o'zgaruvchan matnlar qo'shiladi -->
+            </div>
+            <div class="search-quick animate__animated animate__fadeInUp">
+                <button class="btn primary-btn glow-effect">Repetitor qidirish</button>
+                <button class="btn secondary-btn pulse-effect">Repetitor bo'lish</button>
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>Pastga</span>
+            <i class="fas fa-chevron-down animate__animated animate__bounce animate__infinite"></i>
+        </div>
+    </section>
+
+    <!-- Qidiruv qismi -->
+    <section id="search" class="search-section">
+        <h2 data-aos="fade-up">Repetitor qidirish</h2>
+        <div class="search-filters" data-aos="fade-up" data-aos-delay="200">
+            <div class="filter-group hover-float">
+                <label for="subject">Fan</label>
+                <select id="subject">
+                    <option value="">Tanlang</option>
+                    <option value="matematika">Matematika</option>
+                    <option value="fizika">Fizika</option>
+                    <option value="ingliz">Ingliz tili</option>
+                    <option value="kimyo">Kimyo</option>
+                    <option value="biologiya">Biologiya</option>
+                    <option value="tarix">Tarix</option>
+                    <option value="geografiya">Geografiya</option>
+                    <option value="informatika">Informatika</option>
+                    <option value="adabiyot">Adabiyot</option>
+                    <option value="ona_tili">Ona tili</option>
+                    <option value="rus_tili">Rus tili</option>
+                    <option value="nemis_tili">Nemis tili</option>
+                    <option value="fransuz_tili">Fransuz tili</option>
+                    <option value="koreys_tili">Koreys tili</option>
+                    <option value="xitoy_tili">Xitoy tili</option>
+                    <option value="arab_tili">Arab tili</option>
+                    <option value="huquq">Huquq</option>
+                    <option value="iqtisod">Iqtisod</option>
+                    <option value="musiqa">Musiqa</option>
+                    <option value="san'at">San'at</option>
+                </select>
+                <div class="custom-input-container">
+                    <input type="text" class="custom-input" id="custom-subject" placeholder="Boshqa fan kiritish...">
+                    <button class="add-custom-subject hover-pulse" id="add-subject">Qo'shish</button>
+                </div>
+                <div class="custom-subjects" id="custom-subjects-container">
+                    <!-- Bu yerga JavaScript orqali qo'shilgan fanlar chiqadi -->
+                </div>
+            </div>
+            <div class="filter-group hover-float">
+                <label for="region">Viloyat</label>
+                <select id="region">
+                    <option value="">Tanlang</option>
+                    <option value="toshkent">Toshkent</option>
+                    <option value="andijon">Andijon</option>
+                    <option value="buxoro">Buxoro</option>
+                    <option value="fargona">Farg'ona</option>
+                    <option value="jizzax">Jizzax</option>
+                    <option value="namangan">Namangan</option>
+                    <option value="navoiy">Navoiy</option>
+                    <option value="qashqadaryo">Qashqadaryo</option>
+                    <option value="samarqand">Samarqand</option>
+                    <option value="sirdaryo">Sirdaryo</option>
+                    <option value="surxondaryo">Surxondaryo</option>
+                    <option value="xorazm">Xorazm</option>
+                </select>
+            </div>
+            <div class="filter-group hover-float">
+                <label for="mode">Dars turi</label>
+                <select id="mode">
+                    <option value="">Tanlang</option>
+                    <option value="online">Onlayn</option>
+                    <option value="offline">Oflayn</option>
+                    <option value="both">Ikkala turi</option>
+                </select>
+            </div>
+            <div class="filter-group hover-float">
+                <label for="price">Narx (ming so'm/oylik)</label>
+                <div class="price-range">
+                    <input type="range" id="price" min="150" max="500" step="10" value="150">
+                    <span id="price-value">150</span>
+                </div>
+                <small class="price-info">Har bir o'quvchi uchun bir fan bo'yicha oylik to'lov</small>
+            </div>
+            <div class="filter-group hover-float">
+                <label for="experience">Tajriba</label>
+                <select id="experience">
+                    <option value="">Tanlang</option>
+                    <option value="1-3">1-3 yil</option>
+                    <option value="3-5">3-5 yil</option>
+                    <option value="5-10">5-10 yil</option>
+                    <option value="10+">10+ yil</option>
+                </select>
+            </div>
+            <button class="btn primary-btn search-btn hover-glow">Qidirish</button>
+        </div>
+
+        <div class="search-results">
+            <!-- Natijalar JavaScript orqali qo'shiladi -->
+            <div class="tutor-card interactive-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="tutor-image">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Repetitor rasmi">
+                    <div class="tutor-badges">
+                        <span class="badge top-rated hover-rotate"><i class="fas fa-award"></i> Top</span>
+                        <span class="badge verified hover-rotate"><i class="fas fa-check-circle"></i> Tasdiqlangan</span>
+                    </div>
+                </div>
+                <div class="tutor-info">
+                    <h3>Alisher Karimov</h3>
+                    <div class="tutor-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(24 baho)</span>
+                    </div>
+                    <p class="tutor-subject">Matematika</p>
+                    <p class="tutor-location"><i class="fas fa-map-marker-alt"></i> Toshkent</p>
+                    <p class="tutor-price"><i class="fas fa-money-bill-wave"></i> 200 ming so'm/oylik</p>
+                    <p class="tutor-experience"><i class="fas fa-briefcase"></i> 5 yillik tajriba</p>
+                    <p class="tutor-mode"><i class="fas fa-laptop"></i> Onlayn/Oflayn</p>
+                    <button class="btn contact-btn hover-pulse">Aloqaga chiqish</button>
+                </div>
+                <div class="tutor-hover-info">
+                    <p class="tutor-description">Matematika bo'yicha 5 yillik tajribaga ega mutaxassis. DTM va Olimpiada tayyorlash bo'yicha yuqori natijalar.</p>
+                    <div class="tutor-availability">
+                        <h4>Dars vaqtlari:</h4>
+                        <p>Du-Ju: 14:00 - 20:00</p>
+                        <p>Sha-Yak: 10:00 - 18:00</p>
+                    </div>
+                    <button class="btn primary-btn full-profile-btn hover-glow">To'liq profil</button>
+                </div>
+            </div>
+            
+            <div class="tutor-card interactive-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="tutor-image">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Repetitor rasmi">
+                </div>
+                <div class="tutor-info">
+                    <h3>Nilufar Sobirova</h3>
+                    <div class="tutor-rating">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-count">(18 baho)</span>
+                    </div>
+                    <p class="tutor-subject">Ingliz tili</p>
+                    <p class="tutor-location"><i class="fas fa-map-marker-alt"></i> Samarqand</p>
+                    <p class="tutor-price"><i class="fas fa-money-bill-wave"></i> 100 ming so'm/soat</p>
+                    <p class="tutor-experience"><i class="fas fa-briefcase"></i> 3 yillik tajriba</p>
+                    <p class="tutor-mode"><i class="fas fa-laptop"></i> Onlayn</p>
+                    <button class="btn contact-btn hover-pulse">Aloqaga chiqish</button>
+                </div>
+                <div class="tutor-hover-info">
+                    <p class="tutor-description">IELTS va CEFR bo'yicha 3 yillik tajribaga ega mutaxassis. Ingliz tilini o'rganish uchun zamonaviy metodikalar.</p>
+                    <div class="tutor-availability">
+                        <h4>Dars vaqtlari:</h4>
+                        <p>Du-Ju: 09:00 - 17:00</p>
+                        <p>Sha: 10:00 - 15:00</p>
+                    </div>
+                    <button class="btn primary-btn full-profile-btn hover-glow">To'liq profil</button>
+                </div>
+            </div>
+            
+            <div class="tutor-card interactive-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="tutor-image">
+                    <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Repetitor rasmi">
+                </div>
+                <div class="tutor-info">
+                    <h3>Jasur Rahimov</h3>
+                    <div class="tutor-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-count">(32 baho)</span>
+                    </div>
+                    <p class="tutor-subject">Fizika</p>
+                    <p class="tutor-location"><i class="fas fa-map-marker-alt"></i> Toshkent</p>
+                    <p class="tutor-price"><i class="fas fa-money-bill-wave"></i> 150 ming so'm/soat</p>
+                    <p class="tutor-experience"><i class="fas fa-briefcase"></i> 8 yillik tajriba</p>
+                    <p class="tutor-mode"><i class="fas fa-laptop"></i> Onlayn/Oflayn</p>
+                    <button class="btn contact-btn hover-pulse">Aloqaga chiqish</button>
+                </div>
+                <div class="tutor-hover-info">
+                    <p class="tutor-description">Fizika bo'yicha 8 yillik tajribaga ega mutaxassis. Olimpiada g'oliblari tayyorlagan.</p>
+                    <div class="tutor-availability">
+                        <h4>Dars vaqtlari:</h4>
+                        <p>Du-Ju: 15:00 - 21:00</p>
+                        <p>Sha: 12:00 - 18:00</p>
+                    </div>
+                    <button class="btn primary-btn full-profile-btn hover-glow">To'liq profil</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistika bo'limi -->
+    <section id="statistics" class="statistics-section">
+        <h2 data-aos="fade-up">Bizning statistikamiz</h2>
+        <div class="statistics-container">
+            <div class="statistic-card hover-3d" data-aos="zoom-in" data-aos-delay="100">
+                <div class="hover-3d-inner">
+                    <div class="statistic-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="statistic-number" data-count="24">0</div>
+                    <div class="statistic-title">Repetitorlar</div>
+                </div>
+            </div>
+            
+            <div class="statistic-card hover-3d" data-aos="zoom-in" data-aos-delay="200">
+                <div class="hover-3d-inner">
+                    <div class="statistic-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="statistic-number" data-count="18">0</div>
+                    <div class="statistic-title">O'quvchilar</div>
+                </div>
+            </div>
+            
+            <div class="statistic-card hover-3d" data-aos="zoom-in" data-aos-delay="300">
+                <div class="hover-3d-inner">
+                    <div class="statistic-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="statistic-number" data-count="15">0</div>
+                    <div class="statistic-title">Fanlar</div>
+                </div>
+            </div>
+            
+            <div class="statistic-card hover-3d" data-aos="zoom-in" data-aos-delay="400">
+                <div class="hover-3d-inner">
+                    <div class="statistic-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="statistic-number" data-count="8">0</div>
+                    <div class="statistic-title">Viloyatlar</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="statistics-chart-container" data-aos="fade-up" data-aos-delay="500">
+            <div class="chart-tabs">
+                <button class="chart-tab hover-float active" data-chart="subjects">Eng mashhur fanlar</button>
+                <button class="chart-tab hover-float" data-chart="regions">Viloyatlar bo'yicha</button>
+                <button class="chart-tab hover-float" data-chart="growth">O'sish dinamikasi</button>
+            </div>
+            <div class="chart-container hover-gradient">
+                <canvas id="statisticsChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="statistics-note interactive-element" data-aos="fade-up" data-aos-delay="600">
+            <p><i class="fas fa-info-circle"></i> Platformamiz yangi ishga tushirilgan bo'lib, hozirda demo ma'lumotlar asosida statistika ko'rsatilmoqda. Tez orada (2025-yil aprel oyida) platformamiz to'liq ishga tushiriladi va yangi repetitorlar hamda o'quvchilar soni tez sur'atda ortib boradi.</p>
+        </div>
+    </section>
+
+    <!-- Ro'yxatdan o'tish qismi -->
+    <section id="registration" class="registration-section">
+        <h2>Repetitor sifatida ro'yxatdan o'tish</h2>
+        <div class="registration-container">
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="name">To'liq ism</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefon raqam</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="telegram">Telegram yoki Email</label>
+                    <input type="text" id="telegram" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-region">Viloyat</label>
+                    <select id="reg-region" required>
+                        <option value="">Tanlang</option>
+                        <option value="toshkent">Toshkent</option>
+                        <option value="andijon">Andijon</option>
+                        <option value="buxoro">Buxoro</option>
+                        <option value="fargona">Farg'ona</option>
+                        <option value="jizzax">Jizzax</option>
+                        <option value="namangan">Namangan</option>
+                        <option value="navoiy">Navoiy</option>
+                        <option value="qashqadaryo">Qashqadaryo</option>
+                        <option value="samarqand">Samarqand</option>
+                        <option value="sirdaryo">Sirdaryo</option>
+                        <option value="surxondaryo">Surxondaryo</option>
+                        <option value="xorazm">Xorazm</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reg-subject">Asosiy fan (bepul)</label>
+                    <select id="reg-subject" required>
+                        <option value="">Tanlang</option>
+                        <option value="matematika">Matematika</option>
+                        <option value="fizika">Fizika</option>
+                        <option value="ingliz">Ingliz tili</option>
+                        <option value="kimyo">Kimyo</option>
+                        <option value="biologiya">Biologiya</option>
+                        <option value="tarix">Tarix</option>
+                        <option value="geografiya">Geografiya</option>
+                        <option value="informatika">Informatika</option>
+                        <option value="adabiyot">Adabiyot</option>
+                        <option value="ona_tili">Ona tili</option>
+                        <option value="rus_tili">Rus tili</option>
+                    </select>
+                    <div class="custom-input-container">
+                        <input type="text" class="custom-input" id="custom-reg-subject" placeholder="Boshqa fan kiritish...">
+                        <button type="button" class="add-custom-subject" id="add-reg-subject">Qo'shish</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-experience">Tajriba (yil)</label>
+                    <input type="number" id="reg-experience" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="reg-price">Narx (ming so'm/oylik)</label>
+                    <input type="number" id="reg-price" min="150" placeholder="150 mingdan boshlab" required>
+                    <small class="price-info">Har bir o'quvchi uchun bir fan bo'yicha oylik to'lov miqdori</small>
+                </div>
+                <div class="form-group">
+                    <label>Dars turi</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="online" name="mode" value="online">
+                        <label for="online">Onlayn</label>
+                        <input type="checkbox" id="offline" name="mode" value="offline">
+                        <label for="offline">Oflayn</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="profile-image">Profil rasmi</label>
+                    <input type="file" id="profile-image" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="description">O'zingiz haqida (tajriba, yutuqlar)</label>
+                    <textarea id="description" rows="4" required></textarea>
+                </div>
+                <div class="subscription-options">
+                    <h3>To'lov rejasi</h3>
+                    <div class="subscription-cards">
+                        <div class="subscription-card premium">
+                            <div class="subscription-badge">Eng mashhur</div>
+                            <h4>Oylik</h4>
+                            <p class="price">100,000 so'm</p>
+                            <ul>
+                                <li>Cheklovsiz mijozlar</li>
+                                <li>Qidiruv natijalarida yuqori o'rin</li>
+                                <li>Barcha fanlarni qo'shish</li>
+                            </ul>
+                            <input type="radio" id="monthly" name="subscription" value="monthly" checked>
+                            <label for="monthly" class="subscription-select">Tanlash</label>
+                        </div>
+                        
+                        <div class="subscription-card">
+                            <h4>15 kunlik</h4>
+                            <p class="price">50,000 so'm</p>
+                            <ul>
+                                <li>Cheklovsiz mijozlar</li>
+                                <li>3 tagacha fan qo'shish</li>
+                            </ul>
+                            <input type="radio" id="biweekly" name="subscription" value="biweekly">
+                            <label for="biweekly" class="subscription-select">Tanlash</label>
+                        </div>
+                        
+                        <div class="subscription-card free">
+                            <div class="subscription-badge">Yangi!</div>
+                            <h4>Tekin</h4>
+                            <p class="price">0 so'm</p>
+                            <ul>
+                                <li>5 tagacha mijoz</li>
+                                <li>Faqat 1 fan</li>
+                                <li>24 soat davomida</li>
+                            </ul>
+                            <input type="radio" id="free" name="subscription" value="free">
+                            <label for="free" class="subscription-select">Tanlash</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="subscription-info">
+                    <h4>To'lov rejalari haqida ma'lumot</h4>
+                    <p><strong>Oylik (100,000 so'm):</strong> Cheklovsiz mijozlar, qidiruv natijalarida yuqori o'rin, barcha fanlarni qo'shish imkoniyati, 24/7 texnik yordam.</p>
+                    <p><strong>15 kunlik (50,000 so'm):</strong> Cheklovsiz mijozlar, qidiruv natijalarida o'rta o'rin, 3 tagacha fan qo'shish imkoniyati.</p>
+                    <p><strong>Tekin:</strong> 5 tagacha mijoz, asosiy funksiyalar, faqat 1 fan, 24 soat davomida faol. Faqat bir marta ro'yxatdan o'tish mumkin.</p>
+                </div>
+                <button type="submit" class="registration-form-submit">
+                    <i class="fas fa-user-plus"></i> Ro'yxatdan o'tish
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Resurslar qismi -->
+    <section id="resources" class="resources-section">
+        <h2>Foydali resurslar</h2>
+        <div class="resources-container">
+            <div class="resource-card">
+                <div class="resource-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Matematika testlari">
+                </div>
+                <div class="resource-info">
+                    <h3>Matematika testlari</h3>
+                    <p>DTM formatidagi 100 ta test savollari va javoblari</p>
+                    <p class="resource-price">20,000 so'm</p>
+                    <button class="btn primary-btn">Sotib olish</button>
+                </div>
+            </div>
+            <div class="resource-card">
+                <div class="resource-image">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ingliz tili grammatikasi">
+                </div>
+                <div class="resource-info">
+                    <h3>Ingliz tili grammatikasi</h3>
+                    <p>Barcha grammatika qoidalari va mashqlar to'plami</p>
+                    <p class="resource-price">25,000 so'm</p>
+                    <button class="btn primary-btn">Sotib olish</button>
+                </div>
+            </div>
+            <div class="resource-card">
+                <div class="resource-image">
+                    <img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Fizika formulalari">
+                </div>
+                <div class="resource-info">
+                    <h3>Fizika formulalari</h3>
+                    <p>Barcha fizika formulalari va misollar</p>
+                    <p class="resource-price">15,000 so'm</p>
+                    <button class="btn primary-btn">Sotib olish</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biz haqimizda qismi -->
+    <section id="about" class="about-section">
+        <h2>Biz haqimizda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>"Repetitor Topuvchi" - bu O'zbekistonning 12 viloyatidagi eng yaxshi repetitorlarni bir joyda to'plagan platforma. Bizning maqsadimiz talabalarga sifatli ta'lim olishda yordam berish va repetitorlarga o'z bilimlarini ulashish imkoniyatini yaratishdir.</p>
+                <p>Biz 2025-yilda faoliyatimizni boshladik va bugungi kunda minglab repetitorlar va talabalar bizning platformamizdan foydalanmoqda.</p>
+                <h3>Bizning afzalliklarimiz:</h3>
+                <ul>
+                    <li>O'zbekistonning barcha viloyatlarini qamrab olgan</li>
+                    <li>Ishonchli repetitorlar bazasi</li>
+                    <li>Qulay qidiruv tizimi</li>
+                    <li>Foydali ta'lim resurslari</li>
+                    <li>24/7 mijozlar xizmati</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer qismi -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-3d-container">
+                    <div class="logo-3d">
+                        <div class="logo-front">RT</div>
+                        <div class="logo-back">RT</div>
+                        <div class="logo-top">RT</div>
+                        <div class="logo-bottom">RT</div>
+                        <div class="logo-left">RT</div>
+                        <div class="logo-right">RT</div>
+                    </div>
+                </div>
+                <div class="logo-text">
+                    <span class="number">12</span>
+                    <span class="region">VILOYAT</span>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Sahifalar</h4>
+                    <ul>
+                        <li><a href="#registration">Ro'yxatdan o'tish</a></li>
+                        <li><a href="#search">Qidiruv</a></li>
+                        <li><a href="#resources">Resurslar</a></li>
+                        <li><a href="#about">Biz haqimizda</a></li>
+                        <li><a href="#statistics">Statistika</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Aloqa</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +9989953933031</li>
+                        <li><i class="fas fa-envelope"></i> info@repetitortopuvchi.uz</li>
+                        <li><i class="fab fa-telegram"></i> @RepetitorTopBot</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Ijtimoiy tarmoqlar</h4>
+                    <div class="social-icons">
+                        <a href="https://t.me/justin_claberly" class="social-icon-3d telegram-3d">
+                            <div class="social-icon-inner">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/skromniy_wax" class="social-icon-3d instagram-3d">
+                            <div class="social-icon-inner">
+                                <i class="fab fa-instagram"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="social-icon-3d facebook-3d">
+                            <div class="social-icon-inner">
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                        </a>
+                        <a href="#" class="social-icon-3d youtube-3d">
+                            <div class="social-icon-inner">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Repetitor Topuvchi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript kutubxonalari -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

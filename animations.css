@@ -1,0 +1,1270 @@
+/* 3D Logo stillar */
+.logo-3d-container {
+    perspective: 800px;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+}
+
+.logo-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.logo-3d:hover {
+    animation: logoSpin 1.5s ease-in-out;
+}
+
+.logo-front, .logo-back, .logo-top, .logo-bottom, .logo-left, .logo-right {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.5);
+    backface-visibility: visible;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-front {
+    transform: translateZ(30px);
+    background: linear-gradient(135deg, var(--primary-color), #8e94f2);
+}
+
+.logo-back {
+    transform: rotateY(180deg) translateZ(30px);
+    background: linear-gradient(135deg, #8e94f2, var(--primary-color));
+}
+
+.logo-top {
+    transform: rotateX(90deg) translateZ(30px);
+    background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+}
+
+.logo-bottom {
+    transform: rotateX(-90deg) translateZ(30px);
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.logo-left {
+    transform: rotateY(-90deg) translateZ(30px);
+    background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+.logo-right {
+    transform: rotateY(90deg) translateZ(30px);
+    background: linear-gradient(135deg, #4f46e5, #6366f1);
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0) rotateY(0);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-10px) rotateY(15deg);
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+@keyframes logoSpin {
+    0% {
+        transform: rotateY(0) rotateX(0);
+    }
+    50% {
+        transform: rotateY(180deg) rotateX(180deg);
+    }
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+.logo-text {
+    position: relative;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text .number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    animation: numberPulse 2s infinite;
+}
+
+.logo-text .number:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-primary);
+    bottom: -2px;
+    left: 0;
+    border-radius: 2px;
+    animation: lineGrow 2s infinite;
+}
+
+@keyframes numberPulse {
+    0%, 100% {
+        color: var(--primary-color);
+        text-shadow: 0 0 5px rgba(99, 102, 241, 0.5);
+    }
+    50% {
+        color: var(--accent-color);
+        text-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+    }
+}
+
+@keyframes lineGrow {
+    0%, 100% {
+        width: 0;
+        opacity: 0;
+    }
+    50% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* RT Logo hover effekti */
+.logo-container:hover .logo-3d {
+    transform: rotateY(180deg);
+}
+
+/* RT Logo click effekti */
+.logo-container:active .logo-3d {
+    transform: scale(0.9);
+    transition: transform 0.2s;
+}
+
+/* RT Logo media query */
+@media (max-width: 768px) {
+    .logo-3d-container {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-front, .logo-back, .logo-top, .logo-bottom, .logo-left, .logo-right {
+        font-size: 20px;
+    }
+}
+
+/* Yangi tugma effektlari */
+.glow-effect {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.glow-effect:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: -1;
+}
+
+.glow-effect:hover:after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pulse-effect {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+/* Floating elementlar */
+.floating-elements {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-element {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.3);
+    transition: transform 0.1s ease-out;
+}
+
+.floating-element:nth-child(1) {
+    top: 20%;
+    left: 15%;
+}
+
+.floating-element:nth-child(2) {
+    top: 30%;
+    left: 75%;
+}
+
+.floating-element:nth-child(3) {
+    top: 70%;
+    left: 25%;
+}
+
+.floating-element:nth-child(4) {
+    top: 60%;
+    left: 80%;
+}
+
+.floating-element:nth-child(5) {
+    top: 40%;
+    left: 50%;
+}
+
+/* Scroll down indicator */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.scroll-down-indicator span {
+    display: block;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.scroll-down-indicator i {
+    font-size: 20px;
+}
+
+/* Particles container */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Tutor kartochka hover effektlari */
+.tutor-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.tutor-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-rated {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.verified {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.tutor-hover-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.tutor-card.expanded .tutor-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tutor-description {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.tutor-availability {
+    margin-bottom: 20px;
+}
+
+.tutor-availability h4 {
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+}
+
+.full-profile-btn {
+    margin-top: auto;
+    align-self: center;
+}
+
+/* Statistika bo'limi stillar */
+.statistics-section {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(79, 70, 229, 0.15));
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
+}
+
+.statistics-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+.statistics-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.statistic-card {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.statistic-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.statistic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.statistic-card:hover::after {
+    transform: scaleX(1);
+}
+
+.statistic-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.statistic-number {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+    position: relative;
+    display: inline-block;
+}
+
+.statistic-number::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.statistic-number.animate {
+    animation: countUp 0.5s ease forwards;
+}
+
+.statistic-title {
+    font-size: 18px;
+    color: var(--light-text);
+}
+
+.statistics-chart-container {
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-lg);
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.chart-tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.chart-tab {
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.chart-tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.chart-container {
+    height: 400px;
+}
+
+/* Yangi feature indikatori */
+.new-feature {
+    position: relative;
+}
+
+.new-feature::after {
+    content: 'Yangi';
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* Responsive stillar */
+@media (max-width: 768px) {
+    .statistics-container {
+        gap: 20px;
+    }
+    
+    .statistic-card {
+        min-width: 150px;
+    }
+    
+    .chart-tabs {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-element {
+        display: none;
+    }
+    
+    .statistic-card {
+        min-width: 100%;
+    }
+}
+
+/* Animatsiyali elementlar */
+.custom-subject-tag {
+    transition: all 0.3s ease;
+}
+
+.custom-subject-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.remove-subject {
+    transition: all 0.3s ease;
+}
+
+.remove-subject:hover {
+    color: #ef4444;
+    transform: scale(1.2);
+}
+
+/* Ro'yxatdan o'tish qismi animatsiyalari */
+.registration-container {
+    animation: fadeInUp 1s ease-out;
+}
+
+.registration-section h2 {
+    animation: fadeIn 1.2s ease-out;
+}
+
+.form-group {
+    position: relative;
+    overflow: hidden;
+}
+
+.form-group input:focus ~ label,
+.form-group textarea:focus ~ label,
+.form-group select:focus ~ label {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.registration-form-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.registration-form-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.registration-form-submit:hover::before {
+    left: 100%;
+}
+
+@keyframes formGroupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.subscription-card {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.subscription-card:hover {
+    transform: translateY(-10px);
+}
+
+.subscription-card.premium:hover {
+    transform: translateY(-10px) scale(1.08);
+}
+
+.subscription-card.active-subscription {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+.subscription-card.free.active-subscription {
+    animation: pulseGlowAccent 2s infinite;
+}
+
+@keyframes pulseGlowAccent {
+    0% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+    }
+}
+
+/* Footer qismi animatsiyalari */
+footer {
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    z-index: -1;
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+}
+
+.footer-logo {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.footer-logo .logo-3d-container {
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+
+.footer-column h4 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.footer-column:hover h4::after {
+    width: 100%;
+}
+
+/* 3D Ijtimoiy tarmoq ikonkalari */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icon-3d {
+    width: 50px;
+    height: 50px;
+    perspective: 500px;
+    position: relative;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.social-icon-3d:hover {
+    transform: scale(1.1);
+}
+
+.social-icon-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon-3d:hover .social-icon-inner {
+    transform: rotateY(180deg);
+}
+
+.telegram-3d .social-icon-inner {
+    background: linear-gradient(135deg, #0088cc, #005f90);
+}
+
+.instagram-3d .social-icon-inner {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.facebook-3d .social-icon-inner {
+    background: linear-gradient(135deg, #3b5998, #2d4373);
+}
+
+.youtube-3d .social-icon-inner {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+}
+
+.social-icon-inner::before,
+.social-icon-inner::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon-inner::before {
+    content: '';
+    z-index: 2;
+}
+
+.social-icon-inner::after {
+    content: attr(data-icon);
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.social-icon-inner i {
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon-3d:active .social-icon-inner {
+    transform: rotateY(180deg) scale(0.9);
+}
+
+@keyframes socialFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.social-icons a:nth-child(1) .social-icon-inner {
+    animation: socialFloat 3s ease-in-out infinite;
+}
+
+.social-icons a:nth-child(2) .social-icon-inner {
+    animation: socialFloat 3s ease-in-out 0.2s infinite;
+}
+
+.social-icons a:nth-child(3) .social-icon-inner {
+    animation: socialFloat 3s ease-in-out 0.4s infinite;
+}
+
+.social-icons a:nth-child(4) .social-icon-inner {
+    animation: socialFloat 3s ease-in-out 0.6s infinite;
+}
+
+/* Footer responsive stillar */
+@media (max-width: 768px) {
+    .social-icon-3d {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon-inner {
+        font-size: 20px;
+    }
+}
+
+/* Sichqoncha effektlari uchun animatsiyalar */
+.hover-rotate {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-rotate:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.hover-float {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-float:hover {
+    transform: translateY(-10px);
+}
+
+.hover-glow {
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.5);
+    transform: scale(1.05);
+}
+
+.hover-bounce {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-bounce:hover {
+    animation: bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.hover-shake {
+    transition: transform 0.5s ease;
+}
+
+.hover-shake:hover {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+.hover-pulse {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.hover-pulse:hover {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+    }
+}
+
+.hover-flip {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.hover-flip:hover {
+    transform: rotateY(180deg);
+}
+
+.hover-swing {
+    transition: transform 0.5s ease;
+    transform-origin: top center;
+}
+
+.hover-swing:hover {
+    animation: swing 1s ease;
+}
+
+@keyframes swing {
+    20% {
+        transform: rotate3d(0, 0, 1, 15deg);
+    }
+    40% {
+        transform: rotate3d(0, 0, 1, -10deg);
+    }
+    60% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    to {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+}
+
+.hover-tada {
+    transition: transform 0.5s ease;
+}
+
+.hover-tada:hover {
+    animation: tada 1s ease;
+}
+
+@keyframes tada {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    10%, 20% {
+        transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%, 60%, 80% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+/* Bo'limlar uchun hover effektlari */
+#search .filter-group {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
+}
+
+#statistics .statistic-card {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+}
+
+#statistics .statistic-icon i {
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+#statistics .statistic-number {
+    transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+
+#statistics .chart-tab {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#statistics .chart-container {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#registration .form-group {
+    transition: transform 0.3s ease, border-left 0.3s ease;
+}
+
+#registration .form-group label {
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#registration .form-group input,
+#registration .form-group select,
+#registration .form-group textarea {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+#registration .subscription-card {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+}
+
+#registration .subscription-badge {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+#registration .price {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#registration .subscription-card ul li {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#registration .registration-form-submit {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#registration .registration-form-submit i {
+    transition: transform 0.5s ease;
+}
+
+#resources .resource-card {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+}
+
+#resources .resource-image img {
+    transition: transform 0.5s ease;
+}
+
+#resources .primary-btn {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#resources .resource-price {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#about .about-text {
+    transition: transform 0.5s ease;
+}
+
+#about h3 {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+#about ul li {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#about .about-image img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Biz haqimizda bo'limidagi rasmlar uchun animatsiyalar */
+#about .about-image .slide {
+    transition: opacity 1.5s ease, transform 0.5s ease;
+}
+
+#about .about-image .slide:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Sichqoncha effektlari uchun maxsus animatsiyalar */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateCard {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(79, 70, 229, 0.5);
+    }
+}
+
+@keyframes iconSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes colorShift {
+    0% {
+        color: #4f46e5;
+    }
+    33% {
+        color: #10b981;
+    }
+    66% {
+        color: #f59e0b;
+    }
+    100% {
+        color: #4f46e5;
+    }
+}
+
+/* Sichqoncha effektlari uchun interaktiv klasslar */
+.interactive-element {
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-element::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.interactive-element:hover::after {
+    transform: translateX(0);
+}
+
+.interactive-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.interactive-card:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Sichqoncha effektlari uchun 3D transformatsiyalar */
+.hover-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.hover-3d-inner {
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.hover-3d:hover .hover-3d-inner {
+    transform: translateZ(50px) rotateX(10deg) rotateY(10deg);
+}
+
+/* Sichqoncha effektlari uchun gradient o'zgarishlar */
+.hover-gradient {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hover-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #4f46e5, #10b981);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+}
+
+.hover-gradient:hover::before {
+    opacity: 0.2;
+} 
